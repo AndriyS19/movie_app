@@ -1,16 +1,15 @@
-# the_movie_app
+# the_movie_app 🎬
 
-A new Flutter project.
 
-## Getting Started
+In the application, there is a possibility to view detailed information about movies. By clicking on a movie that you like, you will be taken to a screen with detailed information about it. We can view the movie's rating (stars), category (horror, mystery, thriller, fantasy, etc.). A brief description of each movie will greet us under its cover. We can also add the movie to the saved list by clicking on the corresponding icon.
 
-This project is a starting point for a Flutter application.
+Saved movies and cartoons can be viewed in a separate tab located on the main screen.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+There is also a search function that opens after clicking on the corresponding icon located on the main screen.
+
+API is a source of information in the program. Everything is built on the principle that we make a request to the service and receive data about movies and other videos from it.
+
+
+
