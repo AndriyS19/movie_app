@@ -50,13 +50,27 @@ class Main extends StatelessWidget {
                     child: Icon(
                       CupertinoIcons.search,
                       color: controller.index.value == 1
-                          ? const Color(0xFF0296E5)
+                          ? Color.fromARGB(255, 15, 165, 246)
                           : const Color(0xFF67686D),
                       size: 30,
                     ),
                   ),
                   label: 'Search',
                   tooltip: 'Search Movies',
+                ),
+                BottomNavigationBarItem(
+                  icon: Container(
+                    margin: const EdgeInsets.only(bottom: 6),
+                    child: Icon(
+                      CupertinoIcons.bookmark,
+                      size: 30,
+                      color: controller.index.value == 2
+                          ? const Color(0xFF0296E5)
+                          : const Color(0xFF67686D),
+                    ),
+                  ),
+                  label: 'Saved list',
+                  tooltip: 'Your SavedList',
                 ),
               ],
             ),
