@@ -2,6 +2,8 @@ import 'package:fade_shimmer/fade_shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:the_movie_app/controllers/movies_controller.dart';
 import 'package:the_movie_app/model/movie_model.dart';
 import 'package:the_movie_app/services/api_service.dart';
 import 'package:the_movie_app/services/app_key.dart';
@@ -35,17 +37,36 @@ class DetailsScreen extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                    const Spacer(),
-                    const Expanded(
-                      child: Text(
-                        'Detail',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 24,
-                            fontFamily: "Comfortaa"),
+                    const Text(
+                      'Detail',
+                      style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 24,
+                          fontFamily: "Comfortaa"),
+                    ),
+                    Tooltip(
+                      message: 'Save this movie to your watch list',
+                      triggerMode: TooltipTriggerMode.tap,
+                      child: IconButton(
+                        onPressed: () {
+                          Get.find<MoviesController>().addToWatchList(movie);
+                        },
+                        icon: Obx(
+                          () =>
+                              Get.find<MoviesController>().isInWatchList(movie)
+                                  ? const Icon(
+                                      Icons.bookmark,
+                                      color: Colors.white,
+                                      size: 33,
+                                    )
+                                  : const Icon(
+                                      Icons.bookmark_outline,
+                                      color: Colors.white,
+                                      size: 33,
+                                    ),
+                        ),
                       ),
                     ),
-                    const Spacer(),
                   ],
                 ),
               ),
@@ -195,12 +216,18 @@ class DetailsScreen extends StatelessWidget {
                             size: 15,
                           ),
                           SizedBox(width: 5),
-                          Text(
-                            Utils.getGenres(movie),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.w400,
-                              fontFamily: "Comfortaa",
-                              fontSize: 14,
+                          SizedBox(
+                            width: 120,
+                            child: AutoSizeText(
+                              Utils.getGenres(movie),
+                              maxLines: 2,
+                              maxFontSize: 20,
+                              minFontSize: 14,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "Comfortaa",
+                                overflow: TextOverflow.ellipsis,
+                              ),
                             ),
                           ),
                         ],
